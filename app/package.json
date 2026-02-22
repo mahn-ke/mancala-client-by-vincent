@@ -1,0 +1,6 @@
+{
+    "name": "mancala-client-by-vincent",
+    "scripts": {
+        "start": "node main.js"
+    }
+}
