@@ -1,16 +1,10 @@
 #http
-version: "3.8"
-
 services:
-  app:
-    image: ghcr.io/mahn-ke/mancala-client-by-vincent:latest
-    restart: on-failure:5
-    environment:
-      - PORT=3012
+  server:
+    image: ghcr.io/vimaster/mancala:latest
     ports:
-      - "3012:3000"
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3012/healthz"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
+      - "3012:5173"
+    environment:
+      - APP=client
+      - VITE_DISCORD_CLIENT_ID=${VITE_DISCORD_CLIENT_ID}
+      - VITE_SERVER_HOST=${VITE_SERVER_HOST}
