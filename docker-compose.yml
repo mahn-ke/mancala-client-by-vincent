@@ -1,5 +1,13 @@
 #http
 services:
+  client:
+    image: ghcr.io/vimaster/mancala:latest
+    ports:
+      - "3012:5173"
+    environment:
+      - APP=client
+      - VITE_DISCORD_CLIENT_ID=${VITE_DISCORD_CLIENT_ID}
+      - VITE_SERVER_HOST=http://server:9000
   server:
     image: ghcr.io/vimaster/mancala:latest
     ports:
@@ -9,11 +17,3 @@ services:
       - JWT_SECRET=${JWT_SECRET}
       - DISCORD_CLIENT_ID=${DISCORD_CLIENT_ID}
       - DISCORD_CLIENT_SECRET=${DISCORD_CLIENT_SECRET}
-  client:
-    image: ghcr.io/vimaster/mancala:latest
-    ports:
-      - "3012:5173"
-    environment:
-      - APP=client
-      - VITE_DISCORD_CLIENT_ID=${VITE_DISCORD_CLIENT_ID}
-      - VITE_SERVER_HOST=http://server:9000
