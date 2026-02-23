@@ -7,11 +7,9 @@ services:
     environment:
       - APP=client
       - VITE_DISCORD_CLIENT_ID=${DISCORD_CLIENT_ID}
-      - VITE_SERVER_HOST=http://server:9000
+      - VITE_SERVER_HOST=http://server:2567
   server:
     image: ghcr.io/vimaster/mancala:latest
-    ports:
-      - "3013:9000"
     environment:
       - APP=server
       - JWT_SECRET=${JWT_SECRET}
